@@ -25,7 +25,7 @@ class main:
         self.arbol_image = pygame.image.load("imgs/arbol.png")
         self.nodo_image= pygame.image.load("imgs/nodo.png")
         self.combo_functions_rect= pygame.Rect(351,185,242,37)
-        self.combo= ComboBox(self.window,['Añadir al inicio','Añadir al final','Eliminar al inicio','Eliminar al final','Invertir la lista', 'Eliminar todos los elementos','Eliminar por posicion','Añadir por posicion','Actualizar valor'],self.combo_functions_rect,self.black_color,'Times New Roman',16,20,self.white_color,self.white_color,40,' ')
+        self.combo= ComboBox(self.window,['Añadir al inicio','Añadir al final','Eliminar al inicio','Eliminar al final','Invertir la lista', 'Eliminar todos los elementos','Eliminar por posicion','Añadir por posicion','Actualizar valor', 'Eliminar duplicado'],self.combo_functions_rect,self.black_color,'Times New Roman',16,20,self.white_color,self.white_color,40,' ')
         self.combo_selected= False
         self.combo_pos_rect= pygame.Rect(862,185,50,37)
         self.combo_pos= ComboBox(self.window,['1','2','3','4','5','6','7','8'],self.combo_pos_rect,self.black_color,'Times New Roman',16,20,self.white_color,self.white_color,40,' ')
@@ -43,7 +43,7 @@ class main:
                 if event.type == pygame.QUIT:
                     sys.exit() 
                 if self.initial_window:
-                    self.initial()
+                    self.initial_V()
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         self.mouse_pos= pygame.mouse.get_pos()
                         self.click_on_head()
@@ -54,12 +54,12 @@ class main:
             pygame.display.flip()    
             
     def rectGroup(self):
-        self.black_rect = pygame.Rect(209,265,105,150)
-        self.captain_rect = pygame.Rect(407,265,98,155)
-        self.hulk_rect = pygame.Rect(515,265,110,155)
-        self.ironman_rect = pygame.Rect(603,265,254,155)                 
-        self.ojo_rect = pygame.Rect(802,265,116,150)
-        self.panther_rect = pygame.Rect(919,265,101,155) 
+        self.dragon1_rect = pygame.Rect(209,265,105,150)
+        self.dragon2_rect = pygame.Rect(407,265,98,155)
+        self.dragon3_rect = pygame.Rect(515,265,110,155)
+        self.dragon4_rect = pygame.Rect(603,265,254,155)                 
+        self.dragon5_rect = pygame.Rect(802,265,116,150)
+        self.dragon6_rect = pygame.Rect(919,265,101,155) 
     
     def text(self):
         pygame.display.set_caption('INTERFAZ TAD 1SEM')
@@ -135,7 +135,7 @@ class main:
         self.select_image()
         
     
-    def initial(self):
+    def initial_V(self):
         self.window.fill(self.white_color)
         self.top_rect=pygame.draw.rect(self.window,self.white_color,(0,0,1280,87),0,0)
         self.bottom_rect= pygame.draw.rect(self.window, self.white_color,(0,649,1280,71),0,0)
@@ -190,22 +190,22 @@ class main:
 
     def select_image(self):
         if pygame.mouse.get_pressed()[0]:
-            if self.black_rect.collidepoint(pygame.mouse.get_pos()):
+            if self.dragon1_rect.collidepoint(pygame.mouse.get_pos()):
                 self.node_aux= 'Dragon1'
                 print('Nodo seleccionado')
-            elif self.captain_rect.collidepoint(pygame.mouse.get_pos()):
+            elif self.dragon2_rect.collidepoint(pygame.mouse.get_pos()):
                 self.node_aux= 'Dragon2'
                 print('Nodo seleccionado')
-            elif self.hulk_rect.collidepoint(pygame.mouse.get_pos()):
+            elif self.dragon3_rect.collidepoint(pygame.mouse.get_pos()):
                 self.node_aux= 'Dragon3'
                 print('Nodo seleccionado')
-            elif self.ironman_rect.collidepoint(pygame.mouse.get_pos()):
+            elif self.dragon4_rect.collidepoint(pygame.mouse.get_pos()):
                 self.node_aux= 'Dragon4'
                 print('Nodo seleccionado')
-            elif self.ojo_rect.collidepoint(pygame.mouse.get_pos()):
+            elif self.dragon5_rect.collidepoint(pygame.mouse.get_pos()):
                 self.node_aux= 'Dragon5'
                 print('Nodo seleccionado')
-            elif self.panther_rect.collidepoint(pygame.mouse.get_pos()):
+            elif self.dragon6_rect.collidepoint(pygame.mouse.get_pos()):
                 self.node_aux= 'Dragon6'
                 print('Nodo seleccionado')
             if self.button_rect.collidepoint(pygame.mouse.get_pos()):
@@ -250,3 +250,7 @@ class main:
                         inst.update_node_value(self.combo_pos.getIndex(),self.node_aux)
                         self.node_aux=None
                         inst.show_list()
+                if self.combo.getIndex()==10:
+                    inst.delete_duplicates()
+                    self.node_aux=None
+                    inst.show_list()

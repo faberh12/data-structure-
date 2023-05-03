@@ -186,8 +186,61 @@ class SingleLinkedList:
             current_node = next
         self.head = previous
 
+    def remove_node_by_value(self, data):
+        if self.head is None:
+            return
+        if self.head.data == data:
+            self.remove_node_at_start()
+        current_node = self.head
+        while current_node is not None:
+            if current_node.data == data:
+                if current_node.next is not None:
+                    current_node.next.prev = current_node.prev
+                current_node.prev.next = current_node.next
+                return
+            current_node = current_node.next
+            self.length -= 1
+
     def remove_node_list(self):
         while self.head != None:
             remove_node = self.head
             self.head = remove_node.next
             self.length -= 1
+
+    def has_duplicates_with_information_v2(self):
+        if self.head is None:
+            return
+        current = self.head
+        values = {}
+        found_duplicates = False
+        while current is not None:
+            if current.data in values:
+                values[current.data].append(current)
+                found_duplicates = True
+            else:
+                values[current.data] = [current]
+            current = current.next
+        if found_duplicates:
+            message = "The duplicates values are:\n"
+            for value, nodes in values.items():
+                if len(nodes) > 1:
+                    message += f" {value}: {len(nodes)} veces\n"
+            print(message)      
+            return True
+        
+    def delete_duplicates(self):
+        if self.head is None:
+            return
+        current = self.head
+        values = {}
+        found_duplicates = False
+        while current is not None:
+            if current.data in values:
+                values[current.data].append(current)
+                found_duplicates = True
+            else:
+                values[current.data] = [current]
+            current = current.next
+        if found_duplicates:
+            self.remove_node_by_value()     
+            return True
