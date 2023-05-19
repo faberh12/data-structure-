@@ -151,7 +151,7 @@ class MegaInterfaz:
         if self.git_rect.collidepoint(pygame.mouse.get_pos()):
             if pygame.mouse.get_pressed()[0] and not self.git_bool:
                 self.git_bool = True
-                webbrowser.open("https://github.com//")
+                webbrowser.open("https:github.com/faberh12/data-structure-/tree/main/Corte2")
         if not pygame.mouse.get_pressed()[0]:
             self.git_bool = False
 
