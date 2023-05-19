@@ -40,10 +40,3 @@ class Boton:
             return True
         else:
             return False
-
-        
-
-
-
-
-

@@ -56,7 +56,7 @@ class MegaInterfaz:
         self.combo_dos = ComboBox(self.screen, ["1", "2", "3", "4", "5"], self.combo_dos_rect, self.GRAY, "Arial", 17, 5, self.WHITE, self.WHITE, 40, "Seleccione una opción")
         self.main_menu = Menu(self.screen, {"SLL": "imagenes/list-outline.png","BlackJack": "imagenes/list-outline.png", "Grafos": "imagenes/circle-nodes-solid.png"}, self.GRAY, 50, "Arial", 22, self.BLACK)
         
-        self.animal_seleccionado = None
+        self.imagenSeleccionada = None
         self.blackjack = blackjack(self.screen)
 
 
@@ -73,19 +73,19 @@ class MegaInterfaz:
                         item.quitar_seleccion_otros()
                         if item.mouse_encima(mouse_pos):
                             item.select_button(mouse_pos)
-                            self.animal_seleccionado = item.imagen
+                            self.imagenSeleccionada = item.imagen
                     
                     if self.clickOnButton(mouse_pos):
                         metodo=self.combo.getIndex()
                         posicion=self.combo_dos.getIndex()
                         if metodo==1:
                             if self.inst_sll.lenght_sll()<7:
-                                self.inst_sll.create_node_sll_unshift(self.animal_seleccionado)
+                                self.inst_sll.create_node_sll_unshift(self.imagenSeleccionada)
                             else:
                                 self.limit_superate=True
                         elif metodo ==2:
                             if self.inst_sll.lenght_sll()<7:
-                                self.inst_sll.create_node_sll_ends(self.animal_seleccionado)
+                                self.inst_sll.create_node_sll_ends(self.imagenSeleccionada)
                             else:
                                 self.limit_superate=True
                         elif metodo==3:
@@ -103,11 +103,11 @@ class MegaInterfaz:
                             self.limit_superate=False
                         elif metodo==8:
                             if self.inst_sll.lenght_sll()<7:
-                                self.inst_sll.create_node_sll(posicion,self.animal_seleccionado)
+                                self.inst_sll.create_node_sll(posicion,self.imagenSeleccionada)
                             else:
                                 self.limit_superate=True
                         elif metodo==9:
-                            self.inst_sll.update_node_value(posicion,self.animal_seleccionado)
+                            self.inst_sll.update_node_value(posicion,self.imagenSeleccionada)
                         elif metodo==10:
                             self.inst_sll.eliminar_duplicates()
                             self.limit_superate=False
