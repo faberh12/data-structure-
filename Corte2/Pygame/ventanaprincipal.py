@@ -156,8 +156,8 @@ class MegaInterfaz:
             self.git_bool = False
 
     def texto(self,tamaño,texto,color,cords):
-        miFuente=pygame.font.SysFont("Arial",tamaño)
-        texto=miFuente.render(texto,0,color)
+        Fuente = pygame.font.SysFont("Arial",tamaño)
+        texto = Fuente.render(texto,0,color)
         self.screen.blit(texto,(cords[0],cords[1]))
 
     def mostrarSLL(self): 
