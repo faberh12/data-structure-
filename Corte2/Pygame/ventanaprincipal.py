@@ -156,7 +156,7 @@ class MegaInterfaz:
             self.git_bool = False
 
     def texto(self,tamaño,texto,color,cords):
-        miFuente=pygame.font.SysFont("Arial",tamaño)
+        miFuente=pygame.font.SysFont("Times New Roman",tamaño)
         texto=miFuente.render(texto,0,color)
         self.screen.blit(texto,(cords[0],cords[1]))
 
