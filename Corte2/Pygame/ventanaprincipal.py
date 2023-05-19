@@ -54,7 +54,7 @@ class MegaInterfaz:
         #ombobox dos
         self.combo_dos_rect = pygame.Rect(815, 300, 250, 25)
         self.combo_dos = ComboBox(self.screen, ["1", "2", "3", "4", "5"], self.combo_dos_rect, self.GRAY, "Arial", 17, 5, self.WHITE, self.WHITE, 40, "Seleccione una opción")
-        self.main_menu = Menu(self.screen, {"SLL": "imagenes/list-outline.png","BlackJack": "imagenes/list-outline.png", "Grafos": "imagenes/circle-nodes-solid.png"}, self.GRAY, 50, "Arial", 22, self.BLACK)
+        self.main_menu = Menu(self.screen, {"SLL": "imagenes/list-outline.png","BlackJack": "imagenes/list-outline.png", "Grafos": "imagenes/circle-nodes-solid.png"}, self.BLUE, 50, "Times New Roman", 22, self.WHITE)
         
         self.imagenSeleccionada = None
         self.blackjack = blackjack(self.screen)
