@@ -1,4 +1,3 @@
-import pygame
-from colorama import Fore, init
-init()
-pygame.init()
+from ventanaprincipal import MegaInterfaz
+inst_Mega = MegaInterfaz()
+inst_Mega.corre_juego()
