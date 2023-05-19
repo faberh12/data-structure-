@@ -191,8 +191,8 @@ class MegaInterfaz:
         self.blackjack.botones(self.screen)
         #Texto
         self.texto(20,"DESARROLADO POR: Fabian Hernandez Castaño",self.BLACK,(450,650))
-        self.texto(18,"Para iniciar el juego debes dar click en el boton START: ",self.WHITE,(108,108))
-        self.texto(18,"Para reiniciar da click en RESET: ",self.WHITE,(715,108))
+        self.texto(16,"Para iniciar el juego debes dar click en el boton Empezar: ",self.WHITE,(108,108))
+        self.texto(18,"Para reiniciar da click en Repetir: ",self.WHITE,(715,108))
         self.texto(18,"Jugador 1 ",self.WHITE,(208,332))
         self.texto(18,"Jugador 2 ",self.WHITE,(556,381))
         self.texto(18,"Jugador 3 ",self.WHITE,(906,332))
